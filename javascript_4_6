@@ -1,0 +1,78 @@
+//pushメソッド
+const characters = ["にんじゃ", "ベイビー", "ひつじ"];
+
+characters.push("とりずきん");
+
+console.log(characters);
+
+//forEachメソッド
+const characters = ["にんじゃ", "ベイビー", "ひつじ", "ずきん"];
+
+characters.forEach((character) =>{
+  console.log(character);
+});
+
+//findメソッド
+const numbers = [1, 3, 5, 7, 9];
+
+const foundNumber = numbers.find((number)=>{
+  return number%3 == 0   //1つしか取り出せない 
+});
+
+console.log(foundNumber);
+
+//filterメソッド
+const numbers = [1, 2, 3, 4];
+
+const evenNumbers = numbers.filter((number)=>{
+  return number%2 == 0;
+});
+
+console.log(evenNumbers);  //条件に合うものは全て取り出せる 
+
+//mapメソッド
+//配列内のすべての要素に処理を行い、戻り値から新しい配列を作成するメソッド
+
+const numbers = [1, 2, 3, 4];
+
+const doubledNumbers = numbers.map((number)=>{
+  return number*2;
+});
+
+console.log(doubledNumbers);
+
+//コールバック関数
+//ほかの関数に引数として渡される関数
+
+//基本的な記述例
+//コールバック関数
+const printWanko = () => {
+  console.log("にんじゃ");
+};
+
+const call = (callback) => {
+  console.log("コールバック関数を呼び出します。");
+  callback();      //コールバック関数を呼び出すときは()を付ける
+};
+
+call(printWanko);  //コールバック関数を渡すときは()を付けない
+
+//コールバック関数を他の関数の引数に直接入れて定義することもできる
+const call = (callback) => {
+  console.log("コールバック関数を呼び出します。");
+  callback();
+};
+
+//コールバック関数を引数に入れる
+call(()=>{
+  console.log("にんじゃ");
+});
+
+//コールバック関数に引数を渡すこともできる
+const call = (callback) => {
+  callback("にんじゃ", 14);
+};
+
+call((name, age) => {
+  console.log(`${name}は${age}歳です。`);
+});
